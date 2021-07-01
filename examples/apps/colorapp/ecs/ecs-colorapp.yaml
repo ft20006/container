@@ -22,6 +22,14 @@ Parameters:
     Type: String
     Description: color teller image
 
+  TaskIamRole:
+    Type: String
+    Description: Arn for Task IAM Role
+
+  TaskExecutionIamRole:
+    Type: String
+    Description: Arn for Task Execution Role
+
   LoadBalancerPath:
     Type: String
     Default: "*"
@@ -185,9 +193,9 @@ Resources:
               awslogs-region: { Ref: "AWS::Region" }
               awslogs-stream-prefix: colorteller-white-xray
       TaskRoleArn: 
-        'Fn::ImportValue': !Sub "${EnvironmentName}:TaskIamRoleArn"
+        !Ref TaskIamRole
       ExecutionRoleArn: 
-        'Fn::ImportValue': !Sub "${EnvironmentName}:TaskExecutionIamRoleArn"
+        !Ref TaskExecutionIamRole
       NetworkMode: awsvpc
       Memory: '256'
 
@@ -333,9 +341,9 @@ Resources:
               awslogs-region: { Ref: "AWS::Region" }
               awslogs-stream-prefix: colorteller-blue-xray
       TaskRoleArn: 
-        'Fn::ImportValue': !Sub "${EnvironmentName}:TaskIamRoleArn"
+        !Ref TaskIamRole
       ExecutionRoleArn: 
-        'Fn::ImportValue': !Sub "${EnvironmentName}:TaskExecutionIamRoleArn"
+        !Ref TaskExecutionIamRole
       NetworkMode: awsvpc
       Memory: '256'
 
@@ -481,9 +489,9 @@ Resources:
               awslogs-region: { Ref: "AWS::Region" }
               awslogs-stream-prefix: colorteller-red-xray
       TaskRoleArn: 
-        'Fn::ImportValue': !Sub "${EnvironmentName}:TaskIamRoleArn"
+        !Ref TaskIamRole
       ExecutionRoleArn: 
-        'Fn::ImportValue': !Sub "${EnvironmentName}:TaskExecutionIamRoleArn"
+        !Ref TaskExecutionIamRole
       NetworkMode: awsvpc
       Memory: '256'
 
@@ -629,9 +637,9 @@ Resources:
               awslogs-region: { Ref: "AWS::Region" }
               awslogs-stream-prefix: colorteller-black-xray
       TaskRoleArn: 
-        'Fn::ImportValue': !Sub "${EnvironmentName}:TaskIamRoleArn"
+        !Ref TaskIamRole
       ExecutionRoleArn: 
-        'Fn::ImportValue': !Sub "${EnvironmentName}:TaskExecutionIamRoleArn"
+        !Ref TaskExecutionIamRole
       NetworkMode: awsvpc
       Memory: '256'
 
@@ -787,9 +795,9 @@ Resources:
               awslogs-region: { Ref: "AWS::Region" }
               awslogs-stream-prefix: colorgateway-xray
       TaskRoleArn: 
-        'Fn::ImportValue': !Sub "${EnvironmentName}:TaskIamRoleArn"
+        !Ref TaskIamRole
       ExecutionRoleArn: 
-        'Fn::ImportValue': !Sub "${EnvironmentName}:TaskExecutionIamRoleArn"
+        !Ref TaskExecutionIamRole
       NetworkMode: awsvpc
       Memory: '256'
 
@@ -833,10 +841,10 @@ Resources:
                 'Fn::ImportValue': !Sub "${EnvironmentName}:ECSServiceLogGroup"
               awslogs-region: { Ref: "AWS::Region" }
               awslogs-stream-prefix: "tester-app"
-      ExecutionRoleArn:
-        'Fn::ImportValue': !Sub "${EnvironmentName}:TaskExecutionIamRoleArn"
-      TaskRoleArn:
-        'Fn::ImportValue': !Sub "${EnvironmentName}:TaskIamRoleArn"
+      ExecutionRoleArn: 
+        !Ref TaskExecutionIamRole
+      TaskRoleArn: 
+        !Ref TaskIamRole
       NetworkMode: "awsvpc"
       Memory: 256
 
@@ -901,10 +909,10 @@ Resources:
               Value: "2701"
             - Name: "NODE_NAME"
               Value: !Sub "mesh/${AppMeshMeshName}/virtualNode/tcpecho-vn"
-      ExecutionRoleArn:
-        'Fn::ImportValue': !Sub "${EnvironmentName}:TaskExecutionIamRoleArn"
-      TaskRoleArn:
-        'Fn::ImportValue': !Sub "${EnvironmentName}:TaskIamRoleArn"
+      ExecutionRoleArn: 
+        !Ref TaskExecutionIamRole
+      TaskRoleArn: 
+        !Ref TaskIamRole
       NetworkMode: "awsvpc"
       Memory: 256
 

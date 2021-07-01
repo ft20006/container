@@ -19,8 +19,8 @@ export CLUSTER_SIZE=6
 export CLUSTER_INSTANCE_TYPE=t2.micro
 export TASK_IAM_ROLE=arn:aws:iam::425910847289:role/Container-IRAD-Task2-Roles-TaskIamRole-M4ABSROVAAJD
 export TASK_EXECUTION_ROLE=arn:aws:iam::425910847289:role/Container-IRAD-Task2-Roles-TaskExecutionIamRole-7E9FWGRXQ2NW
-export NODE_INSTANCE_ROLE=arn:aws:iam::425910847289:role/Container-IRAD-Task2-Roles-NodeInstanceRole-156NQXTU077T0
-export ECS_INSTANCE_ROLE=arn:aws:iam::425910847289:role/Container-IRAD-Task2-Roles-ECSInstanceRole-1FOJVLY2J16P3
+export NODE_INSTANCE_ROLE=Container-IRAD-Task2-Roles-NodeInstanceRole-156NQXTU077T0
+export ECS_INSTANCE_ROLE=Container-IRAD-Task2-Roles-ECSInstanceRole-1FOJVLY2J16P3
 export ECS_SERVICE_AUTO_SCALING_ROLE=arn:aws:iam::425910847289:role/Container-IRAD-Task2-Role-ECSServiceAutoScalingRol-57MD0JVEQ0I7
 export AWS_SERVICES_ROLE_AMAZON_EKS=arn:aws:iam::425910847289:role/Container-IRAD-Task2-Role-AWSServiceRoleForAmazonE-1NPI9HQSI6TSX
 

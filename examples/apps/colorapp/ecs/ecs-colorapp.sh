@@ -36,4 +36,6 @@ aws --profile "${AWS_PROFILE}" --region "${AWS_DEFAULT_REGION}" \
     EnvoyImage="${ENVOY_IMAGE}" \
     ColorGatewayImage="${COLOR_GATEWAY_IMAGE}" \
     ColorTellerImage="${COLOR_TELLER_IMAGE}" \
-    DeployTester="${DEPLOY_TESTER}"
+    DeployTester="${DEPLOY_TESTER}" \
+    TaskIamRole="${TASK_IAM_ROLE}" \
+    TaskExecutionIamRole="${TASK_EXECUTION_ROLE}" 

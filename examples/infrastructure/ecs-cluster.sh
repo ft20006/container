@@ -8,7 +8,7 @@ set -ex
 # export SERVICES_DOMAIN=demo.local
 # export KEY_PAIR_NAME=appmesh_pk
 # export CLUSTER_SIZE=6
-export CLUSTER_INSTANCE_TYPE=t2.micro
+# export CLUSTER_INSTANCE_TYPE=t2.micro
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
 
@@ -23,6 +23,5 @@ aws --profile "${AWS_PROFILE}" --region "${AWS_DEFAULT_REGION}" \
     ECSServicesDomain="${SERVICES_DOMAIN}" \
     ClusterSize="${CLUSTER_SIZE:-5}" \
     InstanceType="${CLUSTER_INSTANCE_TYPE}" \
-    TaskIamRole="${TASK_IAM_ROLE}" \
-    TaskExecutionIamRole="${TASK_EXECUTION_ROLE}" \
-    ECSServiceAutoScalingRole="${ECS_SERVICE_AUTO_SCALING_ROLE}" 
+    ECSServiceAutoScalingRole="${ECS_SERVICE_AUTO_SCALING_ROLE}" \
+    ECSInstanceRole="${ECS_INSTANCE_ROLE}"

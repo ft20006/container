@@ -47,7 +47,7 @@ Parameters:
     Type: String
     Description: Arn for ECS AutoScaling Role
 
-  Resources:
+Resources:
 
   ECSCluster:
     Type: AWS::ECS::Cluster
